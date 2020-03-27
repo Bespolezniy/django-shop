@@ -9,7 +9,7 @@ def home_page(request):
     context = {
         "title": "Hello World!",
         "content": " Welcome to the homepage.",
-        "premium_content": "hi"
+        "premium_content": "YEAHHHHHH"
     }
 
     return render(request, "home_page.html", context)
@@ -28,8 +28,9 @@ def contact_page(request):
     context = {
         "title": "Contact",
         "content": " Welcome to the contact page.",
-        "form": contact_form
+        "form": contact_form,
     }
+
     if contact_form.is_valid():
         print(contact_form.cleaned_data)
     
@@ -49,7 +50,7 @@ def login_page(request):
         password = form.cleaned_data.get("password")
         user = authenticate(request, username=username, password=password)
         print(user)
-
+        
         if user is not None:
             login(request, user)
             return redirect("/")
