@@ -30,6 +30,7 @@ urlpatterns = [
     path("bootstrap/", TemplateView.as_view(template_name="bootstrap/bootstrap.html")),
     path("products/", include("products.urls", namespace="products")),
     path("search/", include("search.urls", namespace="search")),
+    path("cart/", include("carts.urls", namespace="cart")),
     path("admin/", admin.site.urls),
 ]
 

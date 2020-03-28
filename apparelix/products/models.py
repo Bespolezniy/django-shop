@@ -18,7 +18,8 @@ def upload_image_path(instance, filename):
     new_filename = random.randint(1, 3910209312)
     name, ext = get_filename_ext(filename)
     final_filename = '{new_filename}{ext}'.format(
-        new_filename=new_filename, ext=ext)
+        new_filename=new_filename, ext=ext
+    )
     return "products/{new_filename}/{final_filename}".format(
         new_filename=new_filename,
         final_filename=final_filename
@@ -49,7 +50,7 @@ class ProductManager(models.Manager):
     def all(self):
         return self.get_queryset().active()
 
-    def featured(self):
+    def featured(self):  
         return self.get_queryset().featured()
 
     def get_by_id(self, id):
@@ -85,6 +86,10 @@ class Product(models.Model):
         return self.title
 
     def __unicode__(self):
+        return self.title
+
+    @property
+    def name(self):
         return self.title
 
 

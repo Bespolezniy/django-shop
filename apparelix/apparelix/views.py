@@ -9,9 +9,8 @@ def home_page(request):
     context = {
         "title": "Hello World!",
         "content": " Welcome to the homepage.",
-        "premium_content": "YEAHHHHHH"
+        "premium_content": "yeaa"
     }
-
     return render(request, "home_page.html", context)
 
 
@@ -43,7 +42,7 @@ def login_page(request):
         "form": form
     }
     print("User logged in")
-    
+
     if form.is_valid():
         print(form.cleaned_data)
         username = form.cleaned_data.get("username")
